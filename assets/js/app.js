@@ -1,4 +1,7 @@
 const Test = require('./script.js')
+const jQuery = require('./jquery.min.js')
+const UIKit = require('./uikit.min.js')
 require('../css/global.css')
 require('../css/test.scss')
 require('../css/sass.sass')
+require('../css/uikit.min.css')
