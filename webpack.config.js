@@ -11,6 +11,8 @@ Encore
     // will create public/build/app.js
     .addEntry('app_webpacked', './assets/js/app.js')
 
+    //enables Sass Loader
+    .enableSassLoader()
 
 // export the final configuration
 module.exports = Encore.getWebpackConfig();
