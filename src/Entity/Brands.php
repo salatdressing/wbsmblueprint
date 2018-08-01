@@ -17,7 +17,7 @@ class Brands
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=256)
+     * @ORM\Column(type="string", length=255)
      */
     private $brand;
 
