@@ -66,7 +66,7 @@ class IndexController extends Controller
     }
 
     /**
-    *  @Route("/brand_page/{page_number}", name="brands_show_all_from_page")
+    *  @Route("/brand_page/{pageNumber}", name="brands_show_all_from_page")
     */
     public function getBrandsFromPage($pageNumber): Response
     {
