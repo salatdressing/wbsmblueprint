@@ -27,10 +27,10 @@ class BrandsRepository extends ServiceEntityRepository
       if($pageNumber < 1){
         $pageNumber = 1;
       }
-      $offset = ($pageNumber - 1) * 10;
+      $offset = ($pageNumber - 1) * $limit;
 
       $query = $entityManager->createQuery(
-          'SELECT * FROM brands lIMIT :limit OFFSET :offset '
+          'SELECT b FROM App\Entity\Brands b LIMIT :limit OFFSET :offset '
       )->setParameter('limit', $limit)->setParameter('offset', $offset);
 
       return $query->execute();
