@@ -85,34 +85,6 @@ class IndexController extends Controller
       return $this->render('index/new.html.twig');
     }
 
-    /**
-    *  @Route("/brand_new", name="brands_new")
-    */
 
-
-    public function newBrand(Request $request, ApiService $apiService, FractalService $fractalService)
-  {
-          /** @var Brand $brandname */
-          $brandname = $this->getBrand();
-
-          /** @var UserRepository $rep */
-          $em = $this->getDoctrine()->getManager();
-
-          $data = $request->getContent();
-
-          if(empty($data)) throw new CustomApiException(Response::HTTP_BAD_REQUEST, "Data sent null.");
-
-          /** @var Meeting $test */
-          $brand = $apiService->validateAndCreate($data, Brands::class);
-
-          $brand->setBrand($brandname);
-
-          $em->persist($brand);
-          $em->flush();
-
-          //Return data however you wish, I use a FractalService
-          return new Response('Saved new brand with id '.$brand->getId());
-
-      }
 
 }
