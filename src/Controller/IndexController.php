@@ -47,6 +47,8 @@ class IndexController extends Controller
             'No product found for id '.$id
         );
       }
-      return new Response("You requested the brand " . $brand->getBrand() );
+      return $this->render('index/show.html.twig', [
+          'brands' => array($brand),
+      ]);
     }
 }

@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello Brands!{% endblock %}
+
+{% block body %}
+{% for i in brands %}
+  <div>
+    Id {{ i.id }} <br/>
+    Name{{ i.brand }}
+  </div>
+{% endfor %}
+{% endblock %}
