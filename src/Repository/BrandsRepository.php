@@ -44,7 +44,7 @@ class BrandsRepository extends ServiceEntityRepository
 
 
 
-      return $qb->execute();
+      return $qb->getQuery()->execute();
     }
 //    /**
 //     * @return Brands[] Returns an array of Brands objects
