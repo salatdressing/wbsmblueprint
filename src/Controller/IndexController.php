@@ -85,6 +85,10 @@ class IndexController extends Controller
       return $this->render('index/new.html.twig');
     }
 
+    /**
+    *  @Route("/brand_new", name="brands_new")
+    */
+
 
     public function newBrand(Request $request, ApiService $apiService, FractalService $fractalService)
   {
