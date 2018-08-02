@@ -39,8 +39,14 @@ class IndexController extends Controller
      /**
      * @Route("/brands/{id}", name="brands_show", methods="GET")
      */
-    public function get($brands)
+    public function get($id): Response
     {
-      return new Response("You requested the brand " . $brands->getBrand() );
+      $brand = $this->getDoctrine()->getRepository(Brands::class)->find($id);
+      if (!$brand) {
+        throw $this->createNotFoundException(
+            'No product found for id '.$id
+        );
+      }
+      return new Response("You requested the brand " . $brand->getBrand() );
     }
 }
