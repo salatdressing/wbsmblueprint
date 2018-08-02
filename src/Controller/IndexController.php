@@ -80,7 +80,7 @@ class IndexController extends Controller
     /**
     *  @Route("/brand_form", name="brands_form")
     */
-    public function newBrandForm()
+    public function newForm()
     {
       return $this->render('index/new.html.twig');
     }
