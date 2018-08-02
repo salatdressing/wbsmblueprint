@@ -19,6 +19,22 @@ class BrandsRepository extends ServiceEntityRepository
         parent::__construct($registry, Brands::class);
     }
 
+    public function getPage($pageNumber): array
+    {
+      $entityManager = $this->getEntityManager();
+
+      $limit = 10;
+      if($pageNumber < 1){
+        $pageNumber = 1;
+      }
+      $offset = ($pageNumber - 1) * 10;
+
+      $query = $entityManager->createQuery(
+          'SELECT * FROM brands lIMIT :limit OFFSET :offset '
+      )->setParameter('limit', $limit)->setParameter('offset', $offset);
+
+      return $query->execute();
+    }
 //    /**
 //     * @return Brands[] Returns an array of Brands objects
 //     */

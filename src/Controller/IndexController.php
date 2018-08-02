@@ -65,5 +65,16 @@ class IndexController extends Controller
       ]);
     }
 
+    /**
+    *  @Route("/brand_page/{page_number}", name="brands_show_all_from_page")
+    */
+    public function getBrandsFromPage($pageNumber): Response
+    {
+      $brand = $this->getDoctrine()->getRepository(Brands::class)->getPage($pageNumber);
+
+      return $this->render('index/show.html.twig', [
+        'brands' => $brand,
+      ]);
+    }
 
 }
