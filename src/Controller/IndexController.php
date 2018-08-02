@@ -52,6 +52,10 @@ class IndexController extends Controller
       ]);
     }
 
+    /**
+    * @Route("/brands/all", name="brands_show_all", methods="GET")
+    */
+
     public function getAllBrands(): Response
     {
       $brand =$this->getDoctrine()->getRepository(Brands::class)->findAll();
