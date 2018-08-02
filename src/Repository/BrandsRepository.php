@@ -29,11 +29,22 @@ class BrandsRepository extends ServiceEntityRepository
       }
       $offset = ($pageNumber - 1) * $limit;
 
-      $query = $entityManager->createQuery(
-          'SELECT * FROM App\Entity\Brands b LIMIT :limit OFFSET :offset '
+      /*$query = $entityManager->createQuery(
+          'SELECT b FROM App\Entity\Brands b LIMIT :limit OFFSET :offset '
       )->setParameter('limit', $limit)->setParameter('offset', $offset);
 
-      return $query->execute();
+      */
+
+      $qb = $entityManager->createQueryBuilder();
+      $qb->add('select', 'b')
+      ->add('from', 'Brands b')
+      ->add('orderBy', 'u.id ASC')
+      ->setFirstResult( $offset )
+      ->setMaxResults( $limit );
+
+
+
+      return $qb->execute();
     }
 //    /**
 //     * @return Brands[] Returns an array of Brands objects
