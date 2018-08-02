@@ -1,18 +1,7 @@
 {% extends 'base.html.twig' %}
 {% block body %}
 <form id="form">
-  <input type="text" name="firstname"/>
+  <input type="text" name="brand"/>
   <input type="submit" value="submit this"/>
 </form>
-<script>
-  $("#form").on("submit", function(e){
-    e.preventDefault();
-    let data = {};
-    $(this).serializeArray().forEach((object)=>{
-        data[object.name] = object.value;
-    });
-    console.log(data);
-
-  });
-</script>
 {% endblock %}
