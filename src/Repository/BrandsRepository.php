@@ -33,16 +33,21 @@ class BrandsRepository extends ServiceEntityRepository
           'SELECT b FROM App\Entity\Brands b LIMIT :limit OFFSET :offset '
       )->setParameter('limit', $limit)->setParameter('offset', $offset);
 
-      */
 
-      $qb = $entityManager->createQueryBuilder();
-      $qb->add('select', 'b')
-      ->add('from', 'Brands b')
-      ->add('orderBy', 'u.id ASC')
+
+      $qb = $entityManager->createQueryBuilder('b');
+      $qb
+      //->add('from', 'Brands b')
+      ->add('orderBy', 'b.id ASC')
       ->setFirstResult( $offset )
       ->setMaxResults( $limit );
 
-
+      */
+        $qb = $this->createQueryBuilder('p')
+           //->setParameter('pageNumber', $pageNumber)
+           //->orderBy('p.id', 'DESC')
+           ->setFirstResult( $offset )
+           ->setMaxResults( $limit );
 
       return $qb->getQuery()->execute();
     }
