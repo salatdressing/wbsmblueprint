@@ -53,20 +53,4 @@ class IndexController extends Controller
     }
 
 
-    /**
-    * @Route("/brands/all", name"brands_show_all")
-    */
-    public function getBrands(): Response
-    {
-      $brands = $this->getDoctrine()->getRepository(Brands::class)->findAll();
-      if (!$brands) {
-        throw $this->createNotFoundException(
-            'No brand found for'
-        );
-      }
-      return $this->render('index/show.html.twig',
-      [
-        'brands'=> $brands,
-      ]);
-    }
 }
