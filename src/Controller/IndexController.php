@@ -56,7 +56,7 @@ class IndexController extends Controller
     /**
     * @Route("/brands/all", name"brands_show_all")
     */
-    public function getAll(): Response
+    public function getBrands(): Response
     {
       $brands = $this->getDoctrine()->getRepository(Brands::class)->findAll();
       if (!$brands) {
