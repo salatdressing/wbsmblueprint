@@ -35,4 +35,12 @@ class IndexController extends Controller
 
       return new Response('Saved new brand with id '.$brand->getId());
     }
+
+     /**
+     * @Route("/brands/{id}", name="brands_show", methods="GET")
+     */
+    public function get($brands)
+    {
+      return new Response("You requested the brand " . $brands->getBrand() );
+    }
 }
