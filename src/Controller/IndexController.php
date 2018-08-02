@@ -52,5 +52,14 @@ class IndexController extends Controller
       ]);
     }
 
+    public function getAllBrands(): Response
+    {
+      $brand =$this->getDoctrine()->getRepository(Brands::class)->findAll();
+
+      return $this->render('index/show.html.twig', [
+        'brands' => $brand,
+      ]);
+    }
+
 
 }
